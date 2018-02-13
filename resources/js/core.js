@@ -13,7 +13,8 @@ var photoBooth = (function () {
         gallery = $('#gallery'),
         processing = false,
         pswp = {},
-        resultPage = $('#result');
+        resultPage = $('#result'),
+        showScrollbarsInGallery = true;
 
     // timeOut function
     public.resetTimeOut = function () {
@@ -174,6 +175,12 @@ var photoBooth = (function () {
     // Open Gallery Overview
     public.openGallery = function (elem) {
         var pos = elem.offset();
+        if(showScrollbarsInGallery) {
+            $('.galHeader').css({
+                'right': '40px',
+                'width': 'auto'
+            });
+        }
         gallery.css({
                 'left': pos.left,
                 'top': pos.top
@@ -182,7 +189,7 @@ var photoBooth = (function () {
             .data('top', pos.top)
             .addClass('open')
             .animate({
-                'width': '102%',
+                'width': showScrollbarsInGallery ? '100%' : '102%',
                 'height': '100%',
                 'top': 0,
                 'left': 0
