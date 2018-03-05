@@ -35,8 +35,8 @@ switch($config['os']) {
 		default:
 		$config['take_picture']['cmd'] = 'sudo gphoto2 --capture-image-and-download --filename=%s images';
 		$config['take_picture']['msg'] = 'New file is in location';
-		$config['print']['cmd'] = 'sudo lp -o landscape fit-to-page %s';
-		$config['print']['dev'] = 'sudo gpicview %s';
+		$config['print']['cmd'] = 'sudo lp -d Canon_SELPHY_CP1200 -o landscape -o fit-to-page %s';
+		$config['print']['dev'] = 'gpicview %s';
 		$config['print']['msg'] = '';
 		break;
 }
