@@ -22,13 +22,26 @@ if(!file_exists($filename_source)) {
 
 function goPrint( $config, $filename_print )
 {
-    $printimage = shell_exec(
-        sprintf(
-            $config['print']['cmd'],
-            $filename_print
-        )
-    ); 
-
+    if($config['dev']){
+    
+    	$printimage = shell_exec(
+        	sprintf(
+        	    $config['print']['dev'],
+        	    $filename_print
+        	)
+    	); 
+    
+    }else{
+    
+    	$printimage = shell_exec(
+        	sprintf(
+            	$config['print']['cmd'],
+            	$filename_print
+        	)
+    	); 
+     
+    }
+    
     return $printimage;
 }
 
@@ -44,6 +57,7 @@ if(file_exists($filename_source)) {
         }
 
         // merge source and code
+        /*
         list($width, $height) = getimagesize($filename_source);
         $aspectratio = $width / $height;
         $newheight = 1024 / $aspectratio;
@@ -61,15 +75,23 @@ if(file_exists($filename_source)) {
         imagedestroy($print);        
         imagedestroy($code);
         imagedestroy($source);
+        */
     }
+    
+    $status = goPrint( $config, $filename_print );
     
     // print image
     // fixme: move the command to the config.inc.php
+    
+    /*
     $printimage = shell_exec(
         sprintf(
             $config['print']['cmd'],
             $filename_print
         )
     );
-    echo json_encode(array('status' => 'ok', 'msg' => $printimage || ''));
+    */
+    
+    //echo json_encode(array('status' => 'ok', 'msg' => $printimage || ''));
+    echo json_encode(array('status' => $status, 'msg' => $msg));
 }
