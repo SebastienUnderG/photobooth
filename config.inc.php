@@ -5,7 +5,7 @@ $config['os'] = (DIRECTORY_SEPARATOR == '\\') || (strtolower(substr(PHP_OS, 0, 3
 $config['dev'] = false;
 $config['use_print'] = true;
 $config['use_qr'] = true;
-$config['show_fork'] = true;
+$config['show_fork'] = false;
 $config['file_format'] = 'date'; // don't comment this line, choose between `date` or `time`
 
 // FOLDERS
@@ -20,8 +20,8 @@ $config['folders']['print'] = 'print';
 $config['gallery']['newest_first'] = true;
 
 // LANGUAGE
-// possible values: en, de
-$config['language'] = 'de';
+// possible values: en, de, fr
+$config['language'] = 'fr';
 
 // COMMANDS and MESSAGES
 switch($config['os']) {
