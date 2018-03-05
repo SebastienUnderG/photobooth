@@ -27,7 +27,7 @@ sudo apt-get dist-upgrade
 sudo apt-get install git apache2 php php-gd gphoto2 libav-tools
 cd /var/www/
 sudo rm -r html/
-sudo git clone https://github.com/andreknieriem/photobooth
+sudo git clone https://github.com/SebastienUnderG/photobooth
 sudo mv photobooth html
 sudo chown -R pi: /var/www/
 sudo chmod -R 777 /var/www
